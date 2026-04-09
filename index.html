@@ -4,28 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Il Kiosco – Acireale</title>
-  <meta name="description" content="Il Kiosco ad Acireale: caffè, sfizi, bevande e tanta calma. Il posto giusto per una pausa all'aria aperta, con tanti posti a sedere e un sorriso sempre pronto." />
+  <meta name="description" content="Il Kiosco sul Corso Italia di Acireale: caffè, sfizi, bevande e tanta calma. Francesca e Vittorio ti accolgono con un sorriso ogni giorno." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- HEADER -->
-  <header class="header">
+  <header class="header" id="header">
     <div class="container header-inner">
       <a href="#" class="logo">
         <svg class="logo-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <!-- Base -->
           <rect x="10" y="44" width="44" height="6" rx="2" fill="#5C7A5C"/>
-          <!-- Walls -->
           <rect x="14" y="34" width="10" height="12" rx="1" fill="#8B3A52"/>
           <rect x="40" y="34" width="10" height="12" rx="1" fill="#8B3A52"/>
           <rect x="24" y="36" width="16" height="10" rx="1" fill="#8B3A52" opacity="0.6"/>
-          <!-- Counter -->
           <rect x="13" y="38" width="38" height="4" rx="1" fill="#5C7A5C"/>
-          <!-- Awning stripes -->
           <path d="M8 26 Q16 18 32 16 Q48 18 56 26 Z" fill="#5C7A5C"/>
           <path d="M10 26 Q14 20 18 17.5" stroke="#C8D9A0" stroke-width="3" stroke-linecap="round"/>
           <path d="M18 26 Q22 19 26 17" stroke="#C8D9A0" stroke-width="3" stroke-linecap="round"/>
@@ -33,59 +29,157 @@
           <path d="M34 26 Q38 18.5 38 17" stroke="#C8D9A0" stroke-width="3" stroke-linecap="round"/>
           <path d="M42 26 Q46 19 48 17.5" stroke="#C8D9A0" stroke-width="3" stroke-linecap="round"/>
           <path d="M50 26 Q54 20 54 26" stroke="#C8D9A0" stroke-width="3" stroke-linecap="round"/>
-          <!-- Awning bottom edge scallop -->
           <path d="M8 26 Q12 30 16 26 Q20 30 24 26 Q28 30 32 26 Q36 30 40 26 Q44 30 48 26 Q52 30 56 26" stroke="#5C7A5C" stroke-width="1.5" fill="none"/>
         </svg>
         <span class="logo-text">IL KIOSCO</span>
       </a>
-      <nav class="nav">
+      <nav class="nav" id="nav">
         <a href="#offriamo">Cosa offriamo</a>
+        <a href="#chisiamo">Chi siamo</a>
         <a href="#atmosfera">Atmosfera</a>
         <a href="#dove">Dove siamo</a>
       </nav>
+      <button class="hamburger" id="hamburger" aria-label="Apri menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-nav">
+      <a href="#offriamo" onclick="closeMobile()">Cosa offriamo</a>
+      <a href="#chisiamo" onclick="closeMobile()">Chi siamo</a>
+      <a href="#atmosfera" onclick="closeMobile()">Atmosfera</a>
+      <a href="#dove" onclick="closeMobile()">Dove siamo</a>
+    </nav>
+  </div>
+
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-deco hero-deco--1"></div>
+    <div class="hero-deco hero-deco--2"></div>
+    <div class="hero-deco hero-deco--3"></div>
     <div class="container hero-content">
-      <div class="hero-badge">Acireale · Lungomare</div>
-      <h1 class="hero-title">Un posto dove<br/>il tempo rallenta.</h1>
-      <p class="hero-sub">Caffè, sfizi e bevande in un angolo di calma all'aria aperta.<br/>Dove ogni pausa diventa un piccolo piacere.</p>
-      <a href="#offriamo" class="btn-primary">Scopri di più</a>
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Corso Italia · Acireale
+      </div>
+      <h1 class="hero-title">Un posto dove<br/><em>il tempo rallenta.</em></h1>
+      <p class="hero-sub">Caffè, sfizi e bevande in un angolo di calma nel cuore di Acireale.<br/>Dove ogni pausa diventa un piccolo piacere quotidiano.</p>
+      <div class="hero-actions">
+        <a href="#offriamo" class="btn-primary">Scopri di più</a>
+        <a href="#dove" class="btn-ghost">Come raggiungerci →</a>
+      </div>
     </div>
-    <div class="hero-scroll">
-      <span>↓</span>
+    <div class="hero-kiosk-deco" aria-hidden="true">
+      <svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Base platform -->
+        <rect x="20" y="195" width="160" height="18" rx="4" fill="#5C7A5C" opacity="0.15"/>
+        <!-- Columns -->
+        <rect x="38" y="120" width="14" height="80" rx="3" fill="#5C7A5C" opacity="0.18"/>
+        <rect x="148" y="120" width="14" height="80" rx="3" fill="#5C7A5C" opacity="0.18"/>
+        <!-- Counter wall -->
+        <rect x="38" y="148" width="124" height="52" rx="4" fill="#8B3A52" opacity="0.10"/>
+        <!-- Counter top -->
+        <rect x="30" y="143" width="140" height="10" rx="3" fill="#5C7A5C" opacity="0.20"/>
+        <!-- Awning fill -->
+        <path d="M15 95 Q35 55 100 45 Q165 55 185 95 Z" fill="#5C7A5C" opacity="0.12"/>
+        <!-- Awning stripes -->
+        <path d="M25 95 Q38 62 52 50" stroke="#C8D9A0" stroke-width="8" stroke-linecap="round" opacity="0.35"/>
+        <path d="M55 95 Q68 55 78 47" stroke="#C8D9A0" stroke-width="8" stroke-linecap="round" opacity="0.35"/>
+        <path d="M85 95 Q95 48 100 45" stroke="#C8D9A0" stroke-width="8" stroke-linecap="round" opacity="0.35"/>
+        <path d="M115 95 Q122 48 122 47" stroke="#C8D9A0" stroke-width="8" stroke-linecap="round" opacity="0.35"/>
+        <path d="M145 95 Q152 55 148 50" stroke="#C8D9A0" stroke-width="8" stroke-linecap="round" opacity="0.35"/>
+        <path d="M168 95 Q172 62 175 95" stroke="#C8D9A0" stroke-width="8" stroke-linecap="round" opacity="0.35"/>
+        <!-- Awning scallop -->
+        <path d="M15 95 Q25 110 35 95 Q45 110 55 95 Q65 110 75 95 Q85 110 95 95 Q105 110 115 95 Q125 110 135 95 Q145 110 155 95 Q165 110 175 95 Q183 110 185 95" stroke="#5C7A5C" stroke-width="2.5" fill="none" opacity="0.18"/>
+        <!-- Window/display -->
+        <rect x="60" y="150" width="80" height="35" rx="3" fill="#8B3A52" opacity="0.08"/>
+        <!-- Flag on top -->
+        <line x1="100" y1="20" x2="100" y2="46" stroke="#8B3A52" stroke-width="2" opacity="0.20"/>
+        <path d="M100 20 L118 27 L100 34 Z" fill="#8B3A52" opacity="0.18"/>
+      </svg>
     </div>
+    <div class="hero-scroll" aria-hidden="true">↓</div>
   </section>
 
   <!-- PILLARS -->
   <section class="pillars" id="offriamo">
     <div class="container">
-      <p class="section-label">Cosa offriamo</p>
-      <h2 class="section-title">Tutto quello che ti serve<br/>per una pausa perfetta</h2>
+      <div class="section-header">
+        <p class="section-label">Cosa offriamo</p>
+        <h2 class="section-title">Tutto quello che ti serve<br/>per una pausa perfetta</h2>
+      </div>
       <div class="pillars-grid">
         <div class="pillar-card">
-          <div class="pillar-icon">☕</div>
+          <div class="pillar-icon-wrap">
+            <span class="pillar-icon">☕</span>
+          </div>
           <h3>Caffetteria</h3>
-          <p>Espresso, cappuccino, caffè freddo e molto altro. La nostra macchina non si ferma mai.</p>
+          <p>Espresso, cappuccino, caffè freddo, shakerato e molto altro. La nostra macchina non si ferma mai — e neanche il profumo.</p>
         </div>
-        <div class="pillar-card">
-          <div class="pillar-icon">🥤</div>
+        <div class="pillar-card pillar-card--accent">
+          <div class="pillar-icon-wrap">
+            <span class="pillar-icon">🥤</span>
+          </div>
           <h3>Bevande & Freschezze</h3>
-          <p>Succhi, bibite, granite e cocktail analcolici. Per dissetarti in ogni momento della giornata.</p>
+          <p>Succhi, bibite, granite e cocktail analcolici. Perfetti per scaldarsi o per dissetarsi sotto il sole siciliano.</p>
         </div>
         <div class="pillar-card">
-          <div class="pillar-icon">🥐</div>
+          <div class="pillar-icon-wrap">
+            <span class="pillar-icon">🥐</span>
+          </div>
           <h3>Sfizi & Snack</h3>
-          <p>Brioche, cornetti, stuzzichini e dolci. Piccoli piaceri che fanno la differenza.</p>
+          <p>Brioche, cornetti, stuzzichini e dolcetti. Piccoli piaceri che rendono ogni momento speciale.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- VIBE / ATMOSFERA -->
+  <!-- CHI SIAMO -->
+  <section class="chisiamo" id="chisiamo">
+    <div class="container chisiamo-inner">
+      <div class="chisiamo-visual" aria-hidden="true">
+        <div class="cs-bubble cs-bubble--1">
+          <span>♥</span>
+        </div>
+        <div class="cs-bubble cs-bubble--2">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="10" y="44" width="44" height="6" rx="2" fill="#5C7A5C"/>
+            <rect x="14" y="34" width="10" height="12" rx="1" fill="#8B3A52"/>
+            <rect x="40" y="34" width="10" height="12" rx="1" fill="#8B3A52"/>
+            <rect x="13" y="38" width="38" height="4" rx="1" fill="#5C7A5C"/>
+            <path d="M8 26 Q16 18 32 16 Q48 18 56 26 Z" fill="#5C7A5C"/>
+            <path d="M10 26 Q14 20 18 17.5" stroke="#C8D9A0" stroke-width="3" stroke-linecap="round"/>
+            <path d="M26 26 Q30 18.5 32 16" stroke="#C8D9A0" stroke-width="3" stroke-linecap="round"/>
+            <path d="M42 26 Q46 19 48 17.5" stroke="#C8D9A0" stroke-width="3" stroke-linecap="round"/>
+            <path d="M8 26 Q12 30 16 26 Q20 30 24 26 Q28 30 32 26 Q36 30 40 26 Q44 30 48 26 Q52 30 56 26" stroke="#5C7A5C" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="cs-initials">
+          <span>F</span>
+          <span>&amp;</span>
+          <span>V</span>
+        </div>
+      </div>
+      <div class="chisiamo-text">
+        <p class="section-label">Chi siamo</p>
+        <h2 class="section-title">Francesca e Vittorio,<br/>il cuore del Kiosco.</h2>
+        <p class="chisiamo-desc">
+          Dietro ogni caffè servito con cura, ogni sorriso all'apertura e ogni tavolino sistemato c'è una storia d'amore — quella di <strong>Francesca e Vittorio</strong>, marito e moglie, che hanno trasformato un angolo del Corso Italia in un luogo dove la gente si ferma davvero.
+        </p>
+        <p class="chisiamo-desc">
+          Acireale è casa nostra, e Il Kiosco è la nostra estensione. Lo viviamo ogni giorno con passione, gentilezza e quella solarità tipicamente siciliana che senti appena metti piede qui.
+        </p>
+        <div class="chisiamo-firma">
+          <span>— Francesca &amp; Vittorio</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATMOSFERA -->
   <section class="atmosfera" id="atmosfera">
     <div class="container atm-inner">
       <div class="atm-text">
@@ -95,39 +189,33 @@
           Il Kiosco non è solo un posto dove ordinare. È un luogo dove sedersi, respirare aria fresca e lasciarsi andare. Con tanti posti a sedere all'aperto, ci sarà sempre un angolo per te — che tu venga da solo, in coppia o in compagnia.
         </p>
         <ul class="atm-list">
-          <li>
-            <span class="atm-dot"></span>
-            Numerosi posti a sedere all'aperto
-          </li>
-          <li>
-            <span class="atm-dot"></span>
-            Ambiente rilassato e accogliente
-          </li>
-          <li>
-            <span class="atm-dot"></span>
-            Staff sorridente e gentile
-          </li>
-          <li>
-            <span class="atm-dot"></span>
-            Perfetto per ogni momento della giornata
-          </li>
+          <li><span class="atm-dot"></span>Numerosi posti a sedere all'aperto</li>
+          <li><span class="atm-dot"></span>Ambiente rilassato e accogliente</li>
+          <li><span class="atm-dot"></span>Francesca e Vittorio sempre pronti ad accoglierti</li>
+          <li><span class="atm-dot"></span>Perfetto per ogni momento della giornata</li>
         </ul>
       </div>
       <div class="atm-visual">
         <div class="atm-card atm-card--1">
           <div class="atm-card-icon">🌿</div>
-          <strong>All'aperto</strong>
-          <span>Aria fresca e verde intorno a te</span>
+          <div>
+            <strong>All'aperto</strong>
+            <span>Aria fresca e verde intorno a te</span>
+          </div>
         </div>
         <div class="atm-card atm-card--2">
           <div class="atm-card-icon">☀️</div>
-          <strong>Solarità siciliana</strong>
-          <span>Il sole di Acireale ti scalda l'anima</span>
+          <div>
+            <strong>Solarità siciliana</strong>
+            <span>Il sole di Acireale ti scalda l'anima</span>
+          </div>
         </div>
         <div class="atm-card atm-card--3">
           <div class="atm-card-icon">😊</div>
-          <strong>Sempre accogliente</strong>
-          <span>Un sorriso per ogni cliente</span>
+          <div>
+            <strong>Sempre accogliente</strong>
+            <span>Un sorriso autentico per ogni cliente</span>
+          </div>
         </div>
       </div>
     </div>
@@ -135,10 +223,13 @@
 
   <!-- QUOTE -->
   <section class="quote-section">
+    <div class="quote-deco quote-deco--l">"</div>
+    <div class="quote-deco quote-deco--r">"</div>
     <div class="container">
       <blockquote>
-        "Il posto giusto per iniziare bene la giornata o per chiuderla con dolcezza."
+        Il posto giusto per iniziare bene la giornata<br/>o per chiuderla con dolcezza.
       </blockquote>
+      <cite>— Corso Italia, Acireale</cite>
     </div>
   </section>
 
@@ -147,33 +238,53 @@
     <div class="container dove-inner">
       <div class="dove-text">
         <p class="section-label">Dove siamo</p>
-        <h2 class="section-title">Trovaci ad Acireale</h2>
-        <p class="dove-desc">Siamo sul lungomare di Acireale, facilmente raggiungibile e riconoscibili dalla nostra insegna verde e bordeaux. Passa a trovarci, sei sempre il benvenuto.</p>
+        <h2 class="section-title">Trovaci sul<br/>Corso Italia</h2>
+        <p class="dove-desc">Siamo nel cuore di Acireale, sul Corso Italia. Facilmente raggiungibili e riconoscibili dalla nostra insegna verde e bordeaux. Passa a trovarci, sei sempre il benvenuto.</p>
         <div class="dove-info">
           <div class="dove-info-item">
-            <span class="dove-info-icon">📍</span>
+            <div class="dove-info-icon-wrap">📍</div>
             <div>
-              <strong>Acireale (CT)</strong>
-              <span>Lungomare / Centro</span>
+              <strong>Corso Italia, Acireale (CT)</strong>
+              <span>Centro storico · Sicilia</span>
             </div>
           </div>
           <div class="dove-info-item">
-            <span class="dove-info-icon">🕐</span>
+            <div class="dove-info-icon-wrap">🕐</div>
             <div>
-              <strong>Orari</strong>
-              <span>Tutti i giorni · mattina e pomeriggio</span>
+              <strong>Aperto tutti i giorni</strong>
+              <span>Mattina e pomeriggio</span>
+            </div>
+          </div>
+          <div class="dove-info-item">
+            <div class="dove-info-icon-wrap">☕</div>
+            <div>
+              <strong>Gestito da Francesca e Vittorio</strong>
+              <span>Con passione, ogni giorno</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="dove-map-placeholder">
-        <div class="map-pin">
-          <svg viewBox="0 0 48 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24 0C10.7 0 0 10.7 0 24C0 42 24 64 24 64C24 64 48 42 48 24C48 10.7 37.3 0 24 0Z" fill="#8B3A52"/>
-            <circle cx="24" cy="24" r="10" fill="white"/>
-          </svg>
+      <div class="dove-map-card">
+        <div class="dove-map-inner">
+          <div class="dove-map-streets">
+            <div class="street street--h street--h1"></div>
+            <div class="street street--h street--h2"></div>
+            <div class="street street--v street--v1"></div>
+            <div class="street street--v street--v2"></div>
+            <div class="street street--corso"></div>
+          </div>
+          <div class="dove-pin">
+            <svg viewBox="0 0 48 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 0C10.7 0 0 10.7 0 24C0 42 24 64 24 64C24 64 48 42 48 24C48 10.7 37.3 0 24 0Z" fill="#8B3A52"/>
+              <circle cx="24" cy="24" r="12" fill="white"/>
+              <text x="24" y="29" text-anchor="middle" font-size="13" fill="#8B3A52">☕</text>
+            </svg>
+          </div>
         </div>
-        <p>IL KIOSCO · Acireale</p>
+        <div class="dove-map-label">
+          <strong>IL KIOSCO</strong>
+          <span>Corso Italia · Acireale</span>
+        </div>
       </div>
     </div>
   </section>
@@ -188,14 +299,35 @@
           <rect x="40" y="34" width="10" height="12" rx="1" fill="#e8b4c0"/>
           <rect x="13" y="38" width="38" height="4" rx="1" fill="#C8D9A0"/>
           <path d="M8 26 Q16 18 32 16 Q48 18 56 26 Z" fill="#C8D9A0"/>
+          <path d="M10 26 Q14 20 18 17.5" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M26 26 Q30 18.5 32 16" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M42 26 Q46 19 48 17.5" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-linecap="round"/>
           <path d="M8 26 Q12 30 16 26 Q20 30 24 26 Q28 30 32 26 Q36 30 40 26 Q44 30 48 26 Q52 30 56 26" stroke="#C8D9A0" stroke-width="1.5" fill="none"/>
         </svg>
         <span>IL KIOSCO</span>
       </div>
-      <p class="footer-tagline">Calma, gentilezza e buon caffè · Acireale</p>
+      <p class="footer-tagline">Calma, gentilezza e buon caffè · Corso Italia, Acireale</p>
+      <p class="footer-owners">Con amore, Francesca &amp; Vittorio</p>
       <p class="footer-copy">© 2026 Il Kiosco – Acireale. Tutti i diritti riservati.</p>
     </div>
   </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMobile() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+    // Shrink header on scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 60);
+    });
+  </script>
 
 </body>
 </html>
