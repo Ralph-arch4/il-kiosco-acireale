@@ -53,6 +53,10 @@
       <a href="#atmosfera" onclick="closeMobile()">Atmosfera</a>
       <a href="#dove" onclick="closeMobile()">Dove siamo</a>
     </nav>
+    <div class="mobile-menu-footer">
+      <p>☕ Corso Italia · Acireale</p>
+      <p>Francesca &amp; Vittorio</p>
+    </div>
   </div>
 
   <!-- HERO -->
@@ -72,6 +76,12 @@
         <a href="#dove" class="btn-ghost">Come raggiungerci →</a>
       </div>
     </div>
+    <!-- Mobile hero illustration (only shown on mobile) -->
+    <div class="hero-mobile-deco" aria-hidden="true">
+      <div class="hero-mobile-awning"></div>
+      <div class="hero-mobile-sun">☀️</div>
+    </div>
+
     <div class="hero-kiosk-deco" aria-hidden="true">
       <svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- Base platform -->
@@ -141,26 +151,32 @@
   <section class="chisiamo" id="chisiamo">
     <div class="container chisiamo-inner">
       <div class="chisiamo-visual" aria-hidden="true">
-        <div class="cs-bubble cs-bubble--1">
-          <span>♥</span>
+        <!-- Desktop visual: bubbles -->
+        <div class="cs-desktop-visual">
+          <div class="cs-bubble cs-bubble--1"><span>♥</span></div>
+          <div class="cs-bubble cs-bubble--2">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="44" width="44" height="6" rx="2" fill="#5C7A5C"/>
+              <rect x="14" y="34" width="10" height="12" rx="1" fill="#8B3A52"/>
+              <rect x="40" y="34" width="10" height="12" rx="1" fill="#8B3A52"/>
+              <rect x="13" y="38" width="38" height="4" rx="1" fill="#5C7A5C"/>
+              <path d="M8 26 Q16 18 32 16 Q48 18 56 26 Z" fill="#5C7A5C"/>
+              <path d="M10 26 Q14 20 18 17.5" stroke="#C8D9A0" stroke-width="3" stroke-linecap="round"/>
+              <path d="M26 26 Q30 18.5 32 16" stroke="#C8D9A0" stroke-width="3" stroke-linecap="round"/>
+              <path d="M42 26 Q46 19 48 17.5" stroke="#C8D9A0" stroke-width="3" stroke-linecap="round"/>
+              <path d="M8 26 Q12 30 16 26 Q20 30 24 26 Q28 30 32 26 Q36 30 40 26 Q44 30 48 26 Q52 30 56 26" stroke="#5C7A5C" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+          <div class="cs-initials"><span>F</span><span>&amp;</span><span>V</span></div>
         </div>
-        <div class="cs-bubble cs-bubble--2">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="10" y="44" width="44" height="6" rx="2" fill="#5C7A5C"/>
-            <rect x="14" y="34" width="10" height="12" rx="1" fill="#8B3A52"/>
-            <rect x="40" y="34" width="10" height="12" rx="1" fill="#8B3A52"/>
-            <rect x="13" y="38" width="38" height="4" rx="1" fill="#5C7A5C"/>
-            <path d="M8 26 Q16 18 32 16 Q48 18 56 26 Z" fill="#5C7A5C"/>
-            <path d="M10 26 Q14 20 18 17.5" stroke="#C8D9A0" stroke-width="3" stroke-linecap="round"/>
-            <path d="M26 26 Q30 18.5 32 16" stroke="#C8D9A0" stroke-width="3" stroke-linecap="round"/>
-            <path d="M42 26 Q46 19 48 17.5" stroke="#C8D9A0" stroke-width="3" stroke-linecap="round"/>
-            <path d="M8 26 Q12 30 16 26 Q20 30 24 26 Q28 30 32 26 Q36 30 40 26 Q44 30 48 26 Q52 30 56 26" stroke="#5C7A5C" stroke-width="1.5" fill="none"/>
-          </svg>
-        </div>
-        <div class="cs-initials">
-          <span>F</span>
-          <span>&amp;</span>
-          <span>V</span>
+        <!-- Mobile visual: horizontal pill -->
+        <div class="cs-mobile-visual">
+          <div class="cs-mobile-pill">
+            <span class="cs-mobile-initial">F</span>
+            <span class="cs-mobile-heart">♥</span>
+            <span class="cs-mobile-initial cs-mobile-initial--v">V</span>
+          </div>
+          <p class="cs-mobile-caption">Francesca &amp; Vittorio</p>
         </div>
       </div>
       <div class="chisiamo-text">
@@ -289,6 +305,12 @@
     </div>
   </section>
 
+  <!-- STICKY MOBILE CTA -->
+  <div class="sticky-mobile-cta" id="stickyCta">
+    <a href="#dove" class="sticky-cta-btn">📍 Dove siamo</a>
+    <a href="#offriamo" class="sticky-cta-btn sticky-cta-btn--sec">☕ Il menu</a>
+  </div>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-inner">
@@ -323,9 +345,15 @@
       hamburger.classList.remove('open');
       mobileMenu.classList.remove('open');
     }
-    // Shrink header on scroll
+    // Shrink header on scroll + show sticky CTA after hero
     window.addEventListener('scroll', () => {
-      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 60);
+      const y = window.scrollY;
+      document.getElementById('header').classList.toggle('scrolled', y > 60);
+      // Show sticky CTA after scrolling past hero, hide near footer
+      const footer = document.querySelector('.footer');
+      const footerTop = footer ? footer.getBoundingClientRect().top + y : Infinity;
+      const show = y > window.innerHeight * 0.7 && y < footerTop - 200;
+      document.getElementById('stickyCta').classList.toggle('visible', show);
     });
   </script>
 

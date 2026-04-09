@@ -772,3 +772,171 @@ a { text-decoration: none; color: inherit; }
   .hero-title { font-size: 2rem; }
   .hero-badge { font-size: 0.7rem; }
 }
+
+/* ===== MOBILE MENU FOOTER ===== */
+.mobile-menu-footer {
+  position: absolute;
+  bottom: 40px;
+  left: 0; right: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.mobile-menu-footer p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.mobile-menu-footer p:last-child {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--burgundy);
+  font-size: 0.95rem;
+}
+
+/* ===== HERO MOBILE DECO ===== */
+.hero-mobile-deco { display: none; }
+
+/* ===== CHI SIAMO — desktop vs mobile visual ===== */
+.cs-mobile-visual { display: none; }
+.cs-desktop-visual {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* ===== STICKY MOBILE CTA ===== */
+.sticky-mobile-cta {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 150;
+  padding: 12px 16px 20px; /* extra bottom for safe area */
+  padding-bottom: max(20px, env(safe-area-inset-bottom, 20px));
+  background: rgba(250,248,244,0.97);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--stone-dark);
+  gap: 10px;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 -8px 32px rgba(0,0,0,0.08);
+}
+.sticky-mobile-cta.visible { transform: translateY(0); }
+.sticky-cta-btn {
+  flex: 1;
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: var(--burgundy);
+  color: var(--white);
+  transition: background var(--transition), transform var(--transition);
+  -webkit-tap-highlight-color: transparent;
+}
+.sticky-cta-btn:active { transform: scale(0.97); }
+.sticky-cta-btn--sec {
+  background: var(--stone);
+  color: var(--text);
+}
+
+/* ===== MOBILE OVERRIDES ===== */
+@media (max-width: 640px) {
+  /* Show sticky CTA */
+  .sticky-mobile-cta { display: flex; }
+
+  /* Add padding to body bottom so sticky CTA doesn't cover content */
+  body { padding-bottom: 80px; }
+  body > footer { margin-bottom: 0; }
+
+  /* Hide desktop visual in Chi siamo, show mobile version */
+  .cs-desktop-visual { display: none; }
+  .cs-mobile-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 32px 0;
+  }
+  .cs-mobile-pill {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--white);
+    border-radius: 100px;
+    padding: 12px 28px;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--stone-dark);
+  }
+  .cs-mobile-initial {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    background: var(--burgundy);
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .cs-mobile-initial--v {
+    background: var(--green);
+  }
+  .cs-mobile-heart {
+    font-size: 1.4rem;
+    margin: 0 14px;
+    color: var(--burgundy);
+  }
+  .cs-mobile-caption {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--burgundy);
+    font-size: 1.05rem;
+  }
+  /* Chi siamo layout: single column, visual on top */
+  .chisiamo-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .chisiamo-visual { height: auto; }
+
+  /* Hero mobile deco: small awning watermark */
+  .hero-mobile-deco {
+    display: block;
+    position: absolute;
+    bottom: 80px;
+    right: -20px;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-mobile-awning {
+    width: 180px; height: 80px;
+    border-radius: 50% 50% 0 0;
+    background: var(--green);
+  }
+  .hero-mobile-sun {
+    position: absolute;
+    top: -60px; right: 20px;
+    font-size: 5rem;
+    opacity: 0.6;
+  }
+
+  /* Improve touch tap areas */
+  .atm-card { min-height: 72px; }
+  .dove-info-item { min-height: 56px; }
+  .dove-info-icon-wrap { min-width: 44px; min-height: 44px; }
+
+  /* Pillars: horizontal scroll on very small screens */
+  .pillar-card { padding: 28px 24px; }
+  .pillar-icon-wrap { width: 52px; height: 52px; margin-bottom: 18px; }
+
+  /* Section spacing tighter on mobile */
+  .pillars, .chisiamo, .atmosfera, .dove { padding: 64px 0; }
+  .section-header { margin-bottom: 32px; }
+
+  /* Quote nicer on mobile */
+  .quote-section { padding: 56px 0; }
+  .quote-section blockquote { font-size: 1.3rem; }
+  .quote-deco { font-size: 8rem; opacity: 0.06; }
+}
